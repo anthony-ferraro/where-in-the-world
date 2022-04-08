@@ -1,38 +1,437 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap");
+:root {
+  --bg-light: #fafafa;
+  --raised-light: #ffffff;
+  --text-light: #111517;
+  --shadow-light: rgba(0, 0, 0, 0.0294384);
+  --bg-dark: #202C36;
+  --raised-dark: #2B3844;
+  --text-dark: #ffffff;
+  --shadow-dark: rgba(0, 0, 0, 0.0294384);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.light {
+  --bg: var(--bg-light);
+  --raised: var(--raised-light);
+  --text: var(--text-light);
+  --shadow: var(--shadow-light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dark {
+  --bg: var(--bg-dark);
+  --raised: var(--raised-dark);
+  --text: var(--text-dark);
+  --shadow: var(--shadow-dark);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+i,
+p {
+  display: inline;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.header {
+  width: 100%;
+  height: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 80px;
 }
 
-.App-link {
-  color: #61dafb;
+.header i {
+  margin-right: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header div > p {
+  font-size: 24px;
+  font-weight: 800;
 }
+
+.header div, .header button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header button {
+  font-size: 18px;
+  font-weight: 600px;
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+}
+
+.header button:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+}
+
+.container {
+  width: 100%;
+  padding: 0px 80px;
+}
+
+.filter-menu {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 400px;
+  margin-bottom: 50px;
+}
+
+.input-wrapper {
+  width: 500px;
+  height: 60px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+          box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.input-wrapper i {
+  margin-left: calc(7.5% - 8px);
+}
+
+.input-wrapper input {
+  height: 2rem;
+  width: 80%;
+  margin-right: 5%;
+  border: none;
+}
+
+.input-wrapper input ::-webkit-input-placeholder {
+  opacity: 0.6;
+}
+
+.input-wrapper input :-ms-input-placeholder {
+  opacity: 0.6;
+}
+
+.input-wrapper input ::-ms-input-placeholder {
+  opacity: 0.6;
+}
+
+.input-wrapper input ::placeholder {
+  opacity: 0.6;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.6);
+}
+
+.show-dropdown-button {
+  width: 200px;
+  height: 60px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+          box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.show-dropdown-button:hover {
+  cursor: pointer;
+}
+
+.region-dropdown {
+  position: absolute;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+          box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+  width: 200px;
+  height: 164px;
+  top: 65px;
+  padding: 10px 20px;
+}
+
+.region-dropdown li {
+  width: 100%;
+  height: calc(100%/6);
+}
+
+.country-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(264px, 1fr))[4];
+      grid-template-columns: repeat(4, minmax(264px, 1fr));
+  grid-gap: 20px;
+  width: 100%;
+}
+
+.back-button {
+  -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+          box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+  border-radius: 6px;
+  width: 136px;
+  height: 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+}
+
+.country-details {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.country-details .img-wrapper {
+  width: 560px;
+  height: 370px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.country-details .img-wrapper img {
+  width: 100%;
+}
+
+.country-details .text-wrapper {
+  width: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.country-details .text-wrapper h3 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 55px;
+}
+
+.country-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.country-info > div > p {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.country-info > div > p span {
+  font-weight: 300;
+}
+
+.country-card {
+  width: 265px;
+  height: 335px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+          box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+  padding-bottom: 30px;
+}
+
+.country-card:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+  cursor: pointer;
+}
+
+.country-card .img-wrapper {
+  width: 100%;
+  height: 160px;
+}
+
+.country-card .img-wrapper img {
+  width: 264px;
+  height: 160px;
+}
+
+.country-card .country-stats {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-bottom: 5px;
+}
+
+.country-card .country-stats > h3 {
+  font-size: 18px;
+  font-weight: 800;
+  padding-bottom: 20px;
+}
+
+.country-card .country-stats > p {
+  font-weight: 600;
+}
+
+.country-card .country-stats > p > span {
+  font-weight: 300;
+}
+/*# sourceMappingURL=App.css.map */

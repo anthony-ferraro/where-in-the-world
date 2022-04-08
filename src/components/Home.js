@@ -1,10 +1,10 @@
-import './App.css';
-import Header from './components/Header';
-import FilterMenu from './components/FilterMenu';
-import CountryList from './components/CountryList';
-import { useState, useEffect } from 'react';
-import CountryDetails from './components/CountryDetails';
-function App() {
+import '../App.css';
+import { useState, useEffect } from "react";
+import Header from "./Header";
+import FilterMenu from "./FilterMenu";
+import CountryList from "./CountryList";
+
+function Home() {
   const [theme, setTheme] = useState("light");
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -16,7 +16,6 @@ function App() {
     search: "",
     region: "",
   })
-  const [page, setPage] = useState("home");
   const fetchCountryData = async () => {
     const res = await fetch("https://restcountries.com/v3.1/all"
       ,{
@@ -57,11 +56,11 @@ function App() {
     <>
     <Header theme={theme} handleThemeChange={handleThemeChange}></Header>
     <section className="container">
-      { page==="home" ? <><FilterMenu theme={theme} filters={filters} setFilters={setFilters}></FilterMenu>
-      <CountryList theme={theme} countries={countries} setPage={setPage}></CountryList></> : <CountryDetails setPage={setPage} theme={theme} country={countries.find((country) => country.cca3 === page)}></CountryDetails>}
+      <FilterMenu theme={theme} filters={filters} setFilters={setFilters}></FilterMenu>
+      <CountryList theme={theme} countries={countries} ></CountryList>
     </section>
     </>
   );
 }
 
-export default App;
+export default Home;
