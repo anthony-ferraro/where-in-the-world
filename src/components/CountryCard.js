@@ -1,7 +1,7 @@
 
-const CountryCard = ({country, theme, setPage}) => {
+const CountryCard = ({country, theme, handlePageChange}) => {
     return (
-        <div className="country-card" onClick={() => setPage(country.cca3)}>
+        <div className="country-card" style={{transition: "background-color 0.1s linear, color 0.1s linear", backgroundColor: theme.colors.primary, color: theme.colors.text}} id={country.cca3} onClick={() => handlePageChange(country.cca3)}>
             <div className="img-wrapper">
                 <img src={country.flags.png} alt="" className="flag-image" />
             </div>
