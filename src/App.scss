@@ -148,6 +148,7 @@ button {
         width: 80%;
         margin-right: 5%;
         border: none;
+        user-select: text;
         ::placeholder {
             opacity: 0.6;
         }
@@ -385,7 +386,7 @@ button {
     .filter-menu {
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
         height: 200px;
         padding: 25px 0px;
         justify-content: space-between;

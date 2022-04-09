@@ -207,6 +207,10 @@ button {
   width: 80%;
   margin-right: 5%;
   border: none;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
 }
 
 .input-wrapper input ::-webkit-input-placeholder {
@@ -570,7 +574,7 @@ button {
             flex-direction: column;
     -webkit-box-align: start;
         -ms-flex-align: start;
-            align-items: start;
+            align-items: flex-start;
     height: 200px;
     padding: 25px 0px;
     -webkit-box-pack: justify;
